@@ -44,8 +44,6 @@ namespace FormBuilder.Web
                       "~/Scripts/common.js",
                       "~/Scripts/pageManager.js",
                       "~/Scripts/pageController.js",
-                      //"~/Scripts/tree.js",
-                      //
                       "~/Scripts/Home/page.js",
                       //builder
                       "~/Scripts/Builder/builder.js",
