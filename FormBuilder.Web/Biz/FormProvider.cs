@@ -7,6 +7,9 @@ using FormBuilder.Models;
 
 namespace FormBuilder.Biz
 {
+    /// <summary>
+    /// Represents methods to get/set data
+    /// </summary>
     public class FormProvider : IProvider, IFormProvider
     {
         #region - Variables -

@@ -4,6 +4,9 @@ using FormBuilder.Models;
 
 namespace FormBuilder.Data
 {
+    /// <summary>
+    /// Provides methods to get data from certain repository
+    /// </summary>
     public sealed class DataContext
     {
         #region - Variables -

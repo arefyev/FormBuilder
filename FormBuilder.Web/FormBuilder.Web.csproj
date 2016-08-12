@@ -217,8 +217,6 @@
     <Compile Include="Models\ListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\Cache.cs" />
-    <Compile Include="Providers\IStaffProvider.cs" />
-    <Compile Include="Providers\StaffProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ namespace FormBuilder.Models
         /// </summary>
         public Guid? FormId { get; set; }
         /// <summary>
-        /// Form data
+        /// Form structure
         /// </summary>
         public string Form { get; set; }
     }
