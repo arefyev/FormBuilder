@@ -1,0 +1,150 @@
+﻿/* --- COMMON --- */
+body {
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+h4 {
+    color: #515253;
+}
+
+.overlay-layer {
+    background-color: white;
+    -ms-opacity: 0.2;
+    opacity: 0.2;
+}
+
+.overlay-wrapper {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.overlay-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: black;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: table;
+    background: transparent;
+}
+
+.overlay .spinner {
+    display: inline-block;
+}
+
+header,
+footer {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+}
+header {
+    top: 0;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    background-color: #31A1D1;
+}
+
+header .navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+header .navigation li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+header .navigation li a {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: bold;
+}
+header .navigation li.active a {
+    text-decoration: none;
+}
+
+section.container {
+    margin-top: 70px;
+    margin-bottom:20px;
+}
+
+footer {
+    bottom: 0;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.content {
+    min-height: 300px; 
+    /* better way: calculate region */
+}
+
+/* --- Pages --- */
+
+.home {
+    font-size: 16px;
+}
+
+.home div {
+    font-size: 18px;    
+}
+
+.home ul {
+    padding-left: 20px;
+}
+
+.home ul li {
+    margin: 5px 0;
+}
+
+.home ul li span {
+    font-weight: bold;
+}
+
+.clear-results {
+    display: inline;
+    position: absolute;
+    right: 30px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.forms-list {
+    height: 300px;
+}
+
+.forms-list > div {
+    height: 100%;
+}
+
+.forms-list > div .alpaca-control{
+    height: 100%;
+}
+
+.form-description {
+    margin: 0 0 10px;
+    font-style: italic;
+}
+
+.result-head {
+    font-size:20px;
+    margin: 20px 0;
+}
