@@ -13,6 +13,7 @@
         },
 
         initChildren: function () {
+            $(this.element).append($("<a href='' class='result-link' style='display: none;'>Click to see results</a>"));
             $(this.element).append($("<div class='form-description'></div>"));
             $(this.element).append($("<div class='form-details'></div>"));
         },
@@ -47,7 +48,11 @@
                         $(".form-description", self.element).empty();
 
                     self.renderFormData(data.form);
-                    self.element.trigger("formLoaded", self.Id);
+                    
+                    $(".result-link", self.element).attr("href", "#/Results/Form/" + id);
+                    $(".result-link", self.element).show();
+
+                    self.element.trigger("formLoaded");
                 });
             }
         },

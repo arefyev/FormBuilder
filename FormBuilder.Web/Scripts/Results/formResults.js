@@ -35,17 +35,17 @@
 
         renderResults: function (data) {
             var head = Handlebars.compile($("#form-data").html());
-            var results = Handlebars.compile($("#form-results").html());
-
+           
             $(".head", this.element).html(head(data.form));
 
-            var schema = JSON.parse(data.form.form);
-
             $(".results", this.element).empty();
+            var schema = JSON.parse(data.form.form);
 
             if (data.results.length === 0) {
                 $(".results", this.element).append("No data found");
+                return;
             }
+
             $(".results", this.element).append($("<div class='result-head'>Results</div>"));
             for (var key in data.results) {
                 schema.data = JSON.parse(data.results[key]);
@@ -57,6 +57,8 @@
             }
         },
 
-        _destroy: function () { }
+        _destroy: function() {
+            this.element.off("loadResults");
+        }
     });
 })(jQuery);

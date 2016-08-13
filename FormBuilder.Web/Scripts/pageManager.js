@@ -1,4 +1,4 @@
-﻿///
+﻿//
 // Object manages all project pages to wark as SPA
 //
 var PageManager = (new function () {
@@ -7,6 +7,7 @@ var PageManager = (new function () {
     var viewCache = [];
     var activeModules = {};
     var currentRoute = {};
+    var globalUrl = '';
 
     function parseAction(url) {
         url = url.split("/");
@@ -25,6 +26,10 @@ var PageManager = (new function () {
     function invokeMethod(f, context, params) {
         if (f) f.call(context, params);
     }
+
+    function callbackFunk() {
+        invokeMethod(activeModules[currentRoute.Group].callback, activeModules[currentRoute.Group], prepareParams(globalUrl));
+    };
 
     function loadView(url, controller, callback) {
         var wrapperId = controller + "-wrapper-elem";
@@ -54,7 +59,7 @@ var PageManager = (new function () {
             if (options.highlight)
                 options.highlight(currentRoute.Group);
 
-            if (callback != undefined) {
+            if (callback) {
                 setTimeout(callback.call(), 100);
             }
         });
@@ -70,7 +75,7 @@ var PageManager = (new function () {
 
         if (!options.pages || options.pages.length === 0)
             return;
-
+        globalUrl = url;
         var previousGroup;
 
         //find a path
@@ -95,13 +100,11 @@ var PageManager = (new function () {
             }
             viewCache[previousGroup] = $("#" + previousGroup + "-wrapper-elem").detach();
         }
+
+        var needCallback = url !== currentRoute.Mask;
         // that means that no pages in memory exist
         if (typeof activeModules[currentRoute.Group] === "undefined") {
-            loadView(currentRoute.RootUrl, currentRoute.Group, function () {
-                if (url !== currentRoute.Mask) {
-                    invokeMethod(activeModules[currentRoute.Group].callback, activeModules[currentRoute.Group], prepareParams(url));
-                }
-            });
+            loadView(currentRoute.RootUrl, currentRoute.Group, needCallback ? callbackFunk : null);
         } else {// page in cache
             //load from cache
             if (url === currentRoute.Mask) {
@@ -115,7 +118,7 @@ var PageManager = (new function () {
                 $("#" + currentRoute.Group + "-wrapper-elem").remove();
                 delete activeModules[currentRoute.Group];
                 delete viewCache[currentRoute.Group];
-                loadView(currentRoute.RootUrl, currentRoute.Group);
+                loadView(currentRoute.RootUrl, currentRoute.Group, needCallback ? callbackFunk : null);
             }
         }
     };

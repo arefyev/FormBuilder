@@ -46,19 +46,10 @@ $.extend($.Details.Page.prototype, $.Resources.Page.prototype, {
             $(".no-info").hide();
         });
 
-        self.fDetails.on("formLoaded", function (args, params) {
-            self.formLoaded(params);
-        });
-
         self.fDetails.on("noData", function () {
             $(".no-info").show();
         });
         /* END OF EXTERNAL EVENTS */
-    },
-
-    formLoaded: function (id) {
-        $(".result-link", self.element).attr("href", "#/Results/Form/" + id);
-        $(".result-link", self.element).show();
     },
 
     onShow: function () {
@@ -70,5 +61,9 @@ $.extend($.Details.Page.prototype, $.Resources.Page.prototype, {
 
     onHide: function () { },
 
-    destroy: function () { }
+    destroy: function() {
+        this.fList.off("clickItem");
+        this.fDetails.off("formLoaded");
+        this.fDetails.off("noData");
+    }
 });
