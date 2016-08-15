@@ -45,7 +45,7 @@
                 $(".results", this.element).append("No data found");
                 return;
             }
-
+            //TODO: Rewrite. Now it't uncomfortably...
             $(".results", this.element).append($("<div class='result-head'>Results</div>"));
             for (var key in data.results) {
                 schema.data = JSON.parse(data.results[key]);
